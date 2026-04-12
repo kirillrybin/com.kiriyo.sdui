@@ -1,0 +1,14 @@
+{
+  "name": "SDUI",
+  "rootNamespace": "SDUI",
+  "references": [
+    "UniTask",
+    "Unity.TextMeshPro",
+    "VContainer",
+    "Newtonsoft.Json"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "autoReferenced": true
+}
