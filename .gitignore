@@ -1,12 +1,3 @@
-# Unity
-*.meta
-Library/
-Temp/
-obj/
-Build/
-Builds/
-Logs/
-
 # OS
 .DS_Store
 Thumbs.db
