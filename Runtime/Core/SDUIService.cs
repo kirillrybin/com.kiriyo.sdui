@@ -68,8 +68,6 @@ namespace SDUI.Core
             await LoadPageAsync(currentPage, root, ct);
         }
 
-        // Call when the server publishes new layout (e.g. via push or event)
-        // Pass pageName to invalidate a single page; omit to clear all.
         public void InvalidateCache(string pageName = null)
         {
             if (pageName == null)

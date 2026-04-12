@@ -12,9 +12,7 @@ namespace SDUI.Core
         private readonly Dictionary<string, IComponentBuilder> _builders = new();
         private readonly FallbackBuilder _fallback = new();
 
-        // VContainer resolves IReadOnlyList<IComponentBuilder> automatically
-        // when multiple types are registered via AsImplementedInterfaces()
-        public ComponentFactory(IReadOnlyList<IComponentBuilder> builders)
+        public ComponentFactory(IEnumerable<IComponentBuilder> builders)
         {
             foreach (var builder in builders)
                 _builders[builder.Type] = builder;

@@ -7,13 +7,6 @@ using UnityEngine.UI;
 
 namespace SDUI.Core
 {
-    public interface IUIBuilder
-    {
-        UniTask BuildPageAsync(JObject pageJson, Transform root, CancellationToken ct = default);
-    }
-
-    // Entry point for building a full page/screen from a JSON layout.
-    // Handles recursive "children" expansion.
     [UsedImplicitly]
     public class UIBuilder : IUIBuilder
     {
@@ -50,7 +43,6 @@ namespace SDUI.Core
 
                 var go = await _factory.BuildAsync(componentJson, root, ct);
 
-                // Recursively build nested children
                 var nested = componentJson["children"] as JArray;
                 if (nested != null && go != null)
                     await BuildChildrenAsync(nested, go.transform, ct);
