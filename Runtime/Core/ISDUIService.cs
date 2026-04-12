@@ -9,6 +9,7 @@ namespace SDUI.Core
 	{
 		event Action OnLoadingStarted;
 		event Action OnLoadingFinished;
+		event Action<Exception> OnLoadingFailed;
 
 		UniTask LoadPageAsync(string pageName, Transform root, CancellationToken ct = default);
 		UniTask ChangeLanguageAsync(string languageCode, string currentPage, Transform root, CancellationToken ct = default);

@@ -7,13 +7,6 @@ using SDUI.Core;
 
 namespace SDUI.Builders
 {
-    // Префаб должен содержать:
-    //   Image    (name: "Thumbnail")  — опционально
-    //   RectTransform (name: "TextContainer")
-    //   TMP_Text (name: "Title")
-    //   TMP_Text (name: "Body")
-    //   TMP_Text (name: "Date")
-    //   Button   (name: "ReadMore")   — опционально, если есть action
     public class NewsFeedItemView : MonoBehaviour
     {
         [SerializeField] private Image    _thumbnail;

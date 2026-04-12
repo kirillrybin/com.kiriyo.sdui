@@ -9,7 +9,7 @@ using UnityEngine.UI;
 namespace SDUI.Builders
 {
 	[UsedImplicitly]
-	public class FallbackBuilder:  Core.IComponentBuilder
+	public class FallbackBuilder: Core.IComponentBuilder
 	{
 		public string Type => "__fallback__";
 		

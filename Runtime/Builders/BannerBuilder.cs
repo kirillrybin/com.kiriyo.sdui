@@ -21,7 +21,7 @@ namespace SDUI.Builders
 		private readonly ISDUIHttpClient _http;
 		private readonly SDUIConfig _config;
 
-		public BannerBuilder(BannerPrefab prefab, ActionDispatcher dispatcher, ISDUIHttpClient http, SDUIConfig config, IPlayerProfile profile)
+		public BannerBuilder(BannerPrefab prefab, ActionDispatcher dispatcher, ISDUIHttpClient http, SDUIConfig config)
 		{
 			_prefab = prefab;
 			_dispatcher = dispatcher;

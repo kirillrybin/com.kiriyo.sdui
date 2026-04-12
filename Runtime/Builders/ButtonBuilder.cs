@@ -63,14 +63,12 @@ namespace SDUI.Builders
 
 			if (width.HasValue)
 			{
-				// Fixed width — LayoutGroup respects preferredWidth when flexibleWidth = 0
 				layoutElement.preferredWidth = width.Value;
 				layoutElement.minWidth       = width.Value;
 				layoutElement.flexibleWidth  = 0f;
 			}
 			else
 			{
-				// Stretch to fill parent — LayoutGroup expands flexible children
 				layoutElement.flexibleWidth = 1f;
 			}
 

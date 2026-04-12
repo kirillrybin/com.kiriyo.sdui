@@ -6,12 +6,6 @@ using UnityEngine.UI;
 
 namespace SDUI.Builders
 {
-	// Префаб должен содержать:
-	//   Image       (name: "Background")
-	//   TMP_Text    (name: "Title")
-	//   TMP_Text    (name: "Subtitle")
-	//   Button      (name: "CtaButton")
-	//   TMP_Text    (name: "CtaLabel") — дочерний к CtaButton
 	public class BannerView : MonoBehaviour
 	{
 		[SerializeField] private Image   _background;

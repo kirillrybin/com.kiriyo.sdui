@@ -2,8 +2,10 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using Newtonsoft.Json.Linq;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 namespace SDUI.Core
 {
@@ -19,21 +21,14 @@ namespace SDUI.Core
 
         public async UniTask BuildPageAsync(JObject pageJson, Transform root, CancellationToken ct = default)
         {
+            if (root.GetComponent<VerticalLayoutGroup>() == null)
+                throw new InvalidOperationException(
+                    $"[SDUI] '{root.name}' is missing VerticalLayoutGroup.");
+            
             // Clear previous UI
             foreach (Transform child in root)
                 Object.Destroy(child.gameObject);
             
-            if (root.GetComponent<VerticalLayoutGroup>() == null)
-            {
-                var layout = root.gameObject.AddComponent<VerticalLayoutGroup>();
-                layout.childControlWidth = true;
-                layout.childControlHeight = true;
-                layout.childForceExpandWidth = true;
-                layout.childForceExpandHeight = false;
-                layout.spacing = 8f;
-                layout.padding = new RectOffset(16, 16, 16, 16);
-            }
-
             var children = pageJson["children"] as JArray ?? new JArray(pageJson);
 
             foreach (var node in children)

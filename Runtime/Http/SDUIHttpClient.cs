@@ -13,7 +13,7 @@ namespace SDUI.Http
     [UsedImplicitly]
     public class SDUIHttpClient: ISDUIHttpClient
     {
-        protected readonly IPlayerProfile _profile;
+        private readonly IPlayerProfile _profile;
        
         public SDUIHttpClient(IPlayerProfile profile)
         {

@@ -22,7 +22,7 @@ namespace SDUI.Builders
         private readonly ISDUIHttpClient _http;
         private readonly SDUIConfig _config;
 
-        public NewsFeedBuilder(NewsFeedItemPrefab itemPrefab, ActionDispatcher dispatcher, ISDUIHttpClient http, SDUIConfig config, IPlayerProfile profile)
+        public NewsFeedBuilder(NewsFeedItemPrefab itemPrefab, ActionDispatcher dispatcher, ISDUIHttpClient http, SDUIConfig config)
         {
             _itemPrefab = itemPrefab;
             _dispatcher = dispatcher;
@@ -56,7 +56,6 @@ namespace SDUI.Builders
             var scrollRect       = scrollObj.AddComponent<ScrollRect>();
             scrollRect.horizontal = false;
 
-            // Content container
             var contentObj = new GameObject("Content");
             contentObj.transform.SetParent(scrollObj.transform, false);
 

@@ -15,7 +15,8 @@ namespace SDUI.Core
     {
         public event Action OnLoadingStarted;
         public event Action OnLoadingFinished;
-        
+        public event Action<Exception> OnLoadingFailed;
+
         private readonly IUIBuilder _builder;
         private readonly ISDUIHttpClient _http;
         private readonly IPlayerProfile _profile;
@@ -38,6 +39,10 @@ namespace SDUI.Core
             {
                 var json = await FetchAsync(pageName, ct);
                 await _builder.BuildPageAsync(json, root, ct);
+            }
+            catch (Exception e) when (e is not OperationCanceledException)
+            {
+                OnLoadingFailed?.Invoke(e);
             }
             finally
             {
@@ -95,7 +100,7 @@ namespace SDUI.Core
 
             public CacheEntry(JObject data)
             {
-                Data      = data;
+                Data = data;
                 _createdAt = DateTime.UtcNow;
             }
 
