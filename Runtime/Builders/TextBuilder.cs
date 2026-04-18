@@ -31,7 +31,6 @@ namespace SDUI.Builders
 			if (json["style"]?.Value<string>() is { } style)
 				ApplyStyle(text, style);
 
-			// textColor overrides style color if both are present
 			if (json["textColor"]?.Value<string>() is { } hex &&
 				ColorUtility.TryParseHtmlString(hex, out var textColor))
 				text.color = textColor;
@@ -42,22 +41,20 @@ namespace SDUI.Builders
 			return UniTask.FromResult(go);
 		}
 
-		private static void ApplyStyle(TMP_Text text, string style)
+		private static void ApplyStyle(TMP_Text text, string styleName)
 		{
-			switch (style)
+			var styleSheet = TMP_Settings.defaultStyleSheet;
+			if (styleSheet == null)
 			{
-				case "header":
-					text.fontSize = 32;
-					text.fontStyle = FontStyles.Bold;
-					break;
-				case "body":
-					text.fontSize = 18;
-					break;
-				case "caption":
-					text.fontSize = 14;
-					text.color = new Color(0.6f, 0.6f, 0.6f);
-					break;
+				Debug.LogWarning("[SDUI] TMP default style sheet is not assigned in TMP Settings");
+				return;
 			}
+
+			var style = styleSheet.GetStyle(styleName);
+			if (style != null)
+				text.textStyle = style;
+			else
+				Debug.LogWarning($"[SDUI] TMP style not found: '{styleName}'");
 		}
 
 		private static void ApplyAlign(TMP_Text text, string align)
@@ -67,7 +64,7 @@ namespace SDUI.Builders
 				"left"   => TextAlignmentOptions.Left,
 				"center" => TextAlignmentOptions.Center,
 				"right"  => TextAlignmentOptions.Right,
-				_        => text.alignment   // unknown value — keep prefab default
+				_        => text.alignment
 			};
 		}
 	}

@@ -64,8 +64,8 @@ namespace SDUI.Builders
 			if (width.HasValue)
 			{
 				layoutElement.preferredWidth = width.Value;
-				layoutElement.minWidth       = width.Value;
-				layoutElement.flexibleWidth  = 0f;
+				layoutElement.minWidth = width.Value;
+				layoutElement.flexibleWidth = 0f;
 			}
 			else
 			{
@@ -75,12 +75,12 @@ namespace SDUI.Builders
 			if (height.HasValue)
 			{
 				layoutElement.preferredHeight = height.Value;
-				layoutElement.minHeight       = height.Value;
-				layoutElement.flexibleHeight  = 0f;
+				layoutElement.minHeight = height.Value;
+				layoutElement.flexibleHeight = 0f;
 			}
 			else
 			{
-				layoutElement.minHeight       = DefaultMinHeight;
+				layoutElement.minHeight = DefaultMinHeight;
 				layoutElement.preferredHeight = DefaultMinHeight;
 			}
 		}
