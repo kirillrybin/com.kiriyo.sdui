@@ -1,3 +1,5 @@
+[English](README.md) | [Русский](README.ru.md)
+
 # SDUI — Server-Driven UI for Unity
 
 `com.kiriyo.sdui` · v0.1.0 · by Kiriyo
@@ -5,8 +7,6 @@
 A Unity package for **Server-Driven UI** — UI described as JSON and rendered at runtime. Enables A/B testing, live updates, and localization without app releases.
 
 > See [RemoteCanvas](https://github.com/kirillrybin/RemoteCanvas) for a full demo.
-
-[🇷🇺 Читать на русском](README.ru.md)
 
 ---
 
