@@ -1,3 +1,10 @@
 # OS
 .DS_Store
 Thumbs.db
+
+# Unity meta files for non-Unity files in root
+LICENSE.meta
+README.md.meta
+README.ru.md.meta
+package.json.meta
+Runtime.meta
