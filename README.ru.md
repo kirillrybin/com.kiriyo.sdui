@@ -129,6 +129,7 @@ public class SDUILifetimeScope : LifetimeScope
         builder.Register<PanelBuilder>(Lifetime.Singleton).AsImplementedInterfaces();
         builder.Register<SpacerBuilder>(Lifetime.Singleton).AsImplementedInterfaces();
         builder.Register<BannerBuilder>(Lifetime.Singleton).AsImplementedInterfaces();
+        builder.Register<NewsFeedBuilder>(Lifetime.Singleton).AsImplementedInterfaces();
 
         // Core
         builder.Register<ActionDispatcher>(Lifetime.Singleton);
@@ -175,6 +176,7 @@ public class SDUIInstaller : MonoInstaller
         Container.Bind<IComponentBuilder>().To<PanelBuilder>().AsSingle();
         Container.Bind<IComponentBuilder>().To<SpacerBuilder>().AsSingle();
         Container.Bind<IComponentBuilder>().To<BannerBuilder>().AsSingle();
+        Container.Bind<IComponentBuilder>().To<NewsFeedBuilder>().AsSingle();
 
         // Core
         Container.Bind<ActionDispatcher>().AsSingle();
